@@ -1,30 +1,46 @@
 // -------------- THEME SWITCHER -------------- //
 @mixin dark-appearance {
   filter: invert(1);
+
   img {
     filter: invert(1);
 
-    &.ioda { filter: invert(0); }
+    &.ioda {
+      filter: invert(0);
+    }
   }
 }
 
-body[a="dark"] { @include dark-appearance; }
+body[a="dark"] {
+  @include dark-appearance;
+}
 
 
 @media (prefers-color-scheme: dark) {
-  body[a="auto"] { @include dark-appearance; }
+  body[a="auto"] {
+    @include dark-appearance;
+  }
 }
+
+$black: #131313;
+$white: #ffffff;
+
 // -------------------------------------------- //
 
 // bg color is also needed in html in order to
 // block body's background propagation
 // see: https://stackoverflow.com/a/61265706
-html, body { background: white; }
+html,
+body {
+  background: $white;
+}
 
-html { height: 100%; }
+html {
+  height: 100%;
+}
 
 body {
-  color: black;
+  color: $black;
   font-family: monospace;
   font-size: 16px;
   line-height: 1.4;
@@ -33,22 +49,55 @@ body {
   overflow-wrap: break-word;
 }
 
-.post-meta { text-align: right; }
+// .post-meta {
+//   text-align: right;
+// }
 
-h2, h3, h4, h5, h6 { margin-top: 3rem; }
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 3rem;
+}
 
-hr { margin: 2rem 0; }
+.site-title {
+  background-color: rgb(254, 255, 166);
+  padding: 0.3em 0.5em;
+}
 
-p { margin: 1rem 0; }
+.site-title a {
+  text-decoration: none;
+}
 
-li { margin: 0.4rem 0; }
+.site-title a:hover {
+  text-decoration: underline;
+}
 
-*:target { background: yellow; }
+.site-title a:visited {
+  color: $black;
+}
+
+hr {
+  margin: 2rem 0;
+}
+
+p {
+  margin: 1rem 0;
+}
+
+li {
+  margin: 0.4rem 0;
+}
+
+*:target {
+  background: yellow;
+}
 
 .w {
   max-width: 640px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 2rem;
 }
 
 .toc {
@@ -60,27 +109,37 @@ hr {
   text-align: center;
   border: 0;
 
-  &:before { content: '/////' }
-  &:after { content: attr(data-content) '/////' }
+  &:before {
+    content: '/////'
+  }
+
+  &:after {
+    content: attr(data-content) '/////'
+  }
 }
 
 pre {
   background: black;
   padding: 1em;
-  overflow-x: auto; /* Fix pre content overflowing parent without scroll bar */
+  overflow-x: auto;
+  /* Fix pre content overflowing parent without scroll bar */
 }
 
-table { width: 100%; }
+table {
+  width: 100%;
+}
 
-table, th, td {
-  border: thin solid black;
+table,
+th,
+td {
+  border: thin solid $black;
   border-collapse: collapse;
   padding: 0.4rem;
 }
 
 code {
-  color: white;
-  background: black; 
+  color: $white;
+  background: $black;
   font-size: 80%;
   padding: 0.1em 0.2em;
   font-size: 90%;
@@ -95,10 +154,12 @@ code.has-jax {
 
 blockquote {
   font-style: italic;
-  border: thin solid black;
+  border: thin solid $black;
   padding: 1rem;
 
-  p { margin: 0; }
+  p {
+    margin: 0;
+  }
 }
 
 img {

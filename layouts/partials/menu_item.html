@@ -1,12 +1,12 @@
-<ul>
+<!-- <ul> -->
     {{- range $item := .collection -}}
-        <li>
+        <!-- <li>
             {{- with $item.url -}}
                 <a href="{{ $item.url | relURL }}">{{ safeHTML $item.title }}</a>
             {{- else -}}
                 {{ safeHTML $item.title }}
             {{- end -}}
-        </li>
+        </li> -->
 
         {{- if $item.entries }}
             {{ partial "menu_item.html" (dict "context" . "collection" $item.entries) }}
@@ -17,3 +17,4 @@
         {{- end -}}
     {{- end -}}
 </ul>
+<!--  -->
