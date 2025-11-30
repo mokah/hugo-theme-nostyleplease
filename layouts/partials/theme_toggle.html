@@ -1,0 +1,41 @@
+<button id="theme-toggle" aria-label="Toggle dark mode">
+    <span class="theme-toggle-light">☀</span>
+    <span class="theme-toggle-dark">☾</span>
+</button>
+
+<script>
+    (function () {
+        const toggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Get current theme from body attribute or default to auto
+        function getCurrentTheme() {
+            return body.getAttribute('a') || 'auto';
+        }
+
+        // Cycle through: auto -> light -> dark -> auto
+        function cycleTheme() {
+            const current = getCurrentTheme();
+            let next;
+
+            if (current === 'auto') {
+                next = 'light';
+            } else if (current === 'light') {
+                next = 'dark';
+            } else {
+                next = 'auto';
+            }
+
+            body.setAttribute('a', next);
+            localStorage.setItem('theme', next);
+        }
+
+        // Load saved theme on page load
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            body.setAttribute('a', savedTheme);
+        }
+
+        toggle.addEventListener('click', cycleTheme);
+    })();
+</script>
