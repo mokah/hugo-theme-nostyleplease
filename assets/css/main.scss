@@ -173,7 +173,13 @@ pre {
   background-color: $black;
   padding: 1em;
   overflow-x: auto;
-  /* Fix pre content overflowing parent without scroll bar */
+
+  code {
+    color: $white;
+    background: transparent;
+    font-size: 0.9rem;
+    padding: 0;
+  }
 }
 
 table {
