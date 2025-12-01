@@ -173,6 +173,7 @@ pre {
   background-color: $black;
   padding: 1em;
   overflow-x: auto;
+  -webkit-text-size-adjust: 100%;
 
   code {
     color: $white;
