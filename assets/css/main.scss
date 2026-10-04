@@ -283,6 +283,9 @@ figcaption {
   margin: 1.5rem 0;
 
   .post-item {
+    // cancel the generic `li` margin so rows (and their hover highlight)
+    // sit flush against each other and the hairline separators
+    margin: 0;
     position: relative;
     display: flex;
     align-items: baseline;
