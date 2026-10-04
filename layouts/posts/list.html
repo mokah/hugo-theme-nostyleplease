@@ -1,6 +1,8 @@
 {{ define "main" }}
-<h1 class="site-title"><a href="{{ " /" | relURL }}">{{ $.Site.Title }}</a></h1>
-{{- partial "theme_toggle.html" . -}}
+<header>
+    <h1 class="site-title"><a href="{{ "/" | relURL }}">{{ $.Site.Title }}</a></h1>
+    {{- partial "theme_toggle.html" . -}}
+</header>
 
 <!-- {{ partial "back_link.html" .}} -->
 
