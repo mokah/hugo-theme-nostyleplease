@@ -229,3 +229,57 @@ figcaption {
   text-align: center;
   opacity: 0.5;
 }
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+
+  .post-item {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.65em 0.5em 0.65em 1.8em;
+    border-bottom: 1px solid $black;
+    transition: background-color 0.1s ease, padding-left 0.1s ease;
+
+    &::before {
+      content: '>';
+      position: absolute;
+      left: 0.5em;
+      top: 0.65em;
+      opacity: 0.35;
+      transition: opacity 0.1s ease;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    span {
+      flex-shrink: 0;
+      font-size: 0.8em;
+      opacity: 0.45;
+      letter-spacing: 0.02em;
+    }
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+    }
+
+    &:hover {
+      background-color: $yellow;
+      padding-left: 2.3em;
+
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+}
