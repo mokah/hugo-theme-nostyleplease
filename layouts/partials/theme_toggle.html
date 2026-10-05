@@ -36,6 +36,29 @@
             body.setAttribute('a', savedTheme);
         }
 
-        toggle.addEventListener('click', cycleTheme);
+        // Keep the <meta name="theme-color"> tags in sync with the effective
+        // theme, so the browser UI matches the page even when the user has
+        // overridden the system preference.
+        const lightMeta = document.querySelector('meta[name="theme-color"][media*="light"]');
+        const darkMeta = document.querySelector('meta[name="theme-color"][media*="dark"]');
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+        function getEffectiveTheme() {
+            const t = getCurrentTheme();
+            return t === 'auto' ? (systemDark.matches ? 'dark' : 'light') : t;
+        }
+
+        function syncThemeMeta() {
+            const active = getEffectiveTheme();
+            lightMeta.media = active === 'light' ? 'all' : 'not all';
+            darkMeta.media = active === 'dark' ? 'all' : 'not all';
+        }
+
+        toggle.addEventListener('click', () => {
+            cycleTheme();
+            syncThemeMeta();
+        });
+        systemDark.addEventListener('change', syncThemeMeta);
+        syncThemeMeta();
     })();
 </script>

@@ -3,6 +3,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex" />
+  <!-- Browser UI colors; keep in sync with the main.scss palette
+       ($paper light, invert($paper) dark). theme_toggle.html swaps the
+       media queries when the user overrides the system preference. -->
+  <meta name="theme-color" content="#f5f5f0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0a0f" media="(prefers-color-scheme: dark)">
   {{ if .IsPage }}
   <meta name="description" content="{{ .Summary }}"> {{ end }}
 
